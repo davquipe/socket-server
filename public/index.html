@@ -21,6 +21,12 @@
             console.log(data);
         })
 
+        setTimeout( () =>{
+            socket.emit('mensaje-cliente', {
+                msg: 'Cliente', nombre: 'David'
+            })
+        }, 2000 )
+
     </script>
 
 </body>

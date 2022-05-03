@@ -11,6 +11,10 @@ io.on('connection', ( socket ) => {
         msg: 'Mensaje del server',
         fecha: new Date() 
     })
+
+    socket.on('mensaje-cliente', (data) => {
+        console.log(data);
+    })
     
 });
 
