@@ -5,9 +5,15 @@ const io = require('socket.io')(server);
 
 app.use( express.static( __dirname + '/public' ) );
 
-io.on('connection', () => {
-    console.log('Cliente conectado');
+io.on('connection', ( socket ) => {
+    
+    socket.emit('mensaje-bienvinida', {
+        msg: 'Mensaje del server',
+        fecha: new Date() 
+    })
+    
 });
+
 server.listen(8080, () => {
     console.log('Server corriendo en el puerto: 8080');
 });
