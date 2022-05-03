@@ -7,13 +7,15 @@ app.use( express.static( __dirname + '/public' ) );
 
 io.on('connection', ( socket ) => {
     
-    socket.emit('mensaje-bienvinida', {
-        msg: 'Mensaje del server',
-        fecha: new Date() 
-    })
+    // socket.emit('mensaje-bienvinida', {
+    //     msg: 'Mensaje del server',
+    //     fecha: new Date() 
+    // })
 
-    socket.on('mensaje-cliente', (data) => {
+    socket.on('mensaje-to-server', (data) => {
         console.log(data);
+
+        io.emit('mensaje-from-server', data);
     })
     
 });
